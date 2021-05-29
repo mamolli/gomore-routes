@@ -57,5 +57,5 @@ Scratchpad internal data structures:
        {:2018-32 30}}}
 
 
-Im gonna steal this:
-https://dnaeon.github.io/recursively-merging-maps-in-clojure/
+The nested structure annoys me more.
+I am thinking to go with linear search and some sequence.

@@ -174,3 +174,369 @@ clj꞉user꞉> 
 "Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("Gdn" "Cop" "2010" "20")
 {:Gdn {:Cop {:2010 20}}}
 clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("Gdn" "Cop" "2010" "20")
+{:Gdn {:Cop {:2010 20}}}
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("Gdn" "Cop" "2010" "20")
+; CompilerException java.lang.IllegalArgumentException: Mismatched argument count to recur, expected: 2 args, got: 1, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:37:56) 
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("Gdn" "Cop" "2010" "20")
+{:Gdn {:Cop {:2010 20}}}
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("Gdn" "Cop" "2010" "20")
+{:Gdn {:Cop {:2010 20}}}
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("Gdn" "Cop" "2010" "20")
+{:Gdn {:Cop {:2010 20}}}
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("Gdn" "Cop" "2010" "20")
+{:Gdn {:Cop {:2010 20}}}
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("Gdn" "Cop" "2010" "20")
+{:Gdn {:Cop {:2010 20}}}
+clj꞉user꞉> 
+; CompilerException java.lang.RuntimeException: Unable to resolve symbol: CQ in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:13:19) 
+; RuntimeException Unsupported character: \s+  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unsupported character: \w+  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: )  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: )  clojure.lang.Util.runtimeException (Util.java:221)
+clj꞉user꞉> 
+#'user/re-general
+clj꞉user꞉> 
+#'user/re-general
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("20")
+; NumberFormatException null  java.lang.Integer.parseInt (Integer.java:542)
+clj꞉user꞉> 
+; ArityException Wrong number of args (1) passed to: user/parse-command-re  clojure.lang.AFn.throwArity (AFn.java:429)
+clj꞉user꞉> 
+#'user/parse-command-re
+clj꞉user꞉> 
+; ClassCastException java.lang.String cannot be cast to java.util.regex.Pattern  clojure.string/split (string.clj:219)
+clj꞉user꞉> 
+#'user/parse-command-re
+clj꞉user꞉> 
+{:Gdn {:Cop {:2010 20}}}
+clj꞉user꞉> 
+{:Gdn {:Cop {:2010 20}}}
+clj꞉user꞉> 
+{:Gdn {:Cop {:2010 20}}}
+clj꞉user꞉> 
+{:Gdn {:Cop {:2010 20}}}
+clj꞉user꞉> 
+{:Gdn {:Cop {:2010 20}}}
+clj꞉user꞉> 
+#'user/command-S
+clj꞉user꞉> 
+#'user/command-C
+clj꞉user꞉> 
+#'user/flatten-map
+clj꞉user꞉> 
+#'user/flatten
+; WARNING: flatten already refers to: #'clojure.core/flatten in namespace: user, being replaced by: #'user/flatten
+clj꞉user꞉> 
+; CompilerException java.lang.Exception: Unsupported binding form: (for [[k2 v2] v] (concat [k k2] v2)), compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:78:11) 
+clj꞉user꞉> 
+; CompilerException java.lang.Exception: Unsupported binding form: (for [[k2 v2] v] (concat [k k2] v2)), compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:78:11) 
+clj꞉user꞉> 
+#'user/flatmap
+clj꞉user꞉> 
+#'user/flatmap
+clj꞉user꞉> 
+; CompilerException clojure.lang.ArityException: Wrong number of args (3) passed to: core/for, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:79:13) 
+clj꞉user꞉> 
+#'user/flatmap
+clj꞉user꞉> 
+#'user/flatmap
+clj꞉user꞉> 
+#'user/flatmap
+clj꞉user꞉> 
+#'user/flatmap
+clj꞉user꞉> 
+#'user/data
+clj꞉user꞉> 
+#'user/unpacker
+clj꞉user꞉> 
+["gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}]
+()
+clj꞉user꞉> 
+["gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}]
+()
+clj꞉user꞉> 
+["gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}]
+()
+clj꞉user꞉> 
+["gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}]
+()
+clj꞉user꞉> 
+["gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}]
+()
+clj꞉user꞉> 
+#object[user$unpacker 0x300c32f5 "user$unpacker@300c32f5"]
+clj꞉user꞉> 
+["gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}]
+()
+clj꞉user꞉> 
+{"gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}}
+clj꞉user꞉> 
+["gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}]
+()
+clj꞉user꞉> 
+["gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}]
+()
+clj꞉user꞉> 
+["gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}]
+()
+clj꞉user꞉> 
+["gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}]
+()
+clj꞉user꞉> 
+["gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}]
+()
+clj꞉user꞉> 
+{"gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}}
+clj꞉user꞉> 
+#object[clojure.core$seq__4357 0x3a8d0bc1 "clojure.core$seq__4357@3a8d0bc1"]
+clj꞉user꞉> 
+["gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}]
+()
+clj꞉user꞉> 
+; CompilerException java.lang.RuntimeException: Unable to resolve symbol: el in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:1:1010) 
+clj꞉user꞉> 
+#'user/unpacker
+clj꞉user꞉> 
+#'user/unpacker
+clj꞉user꞉> 
+("gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}})
+clj꞉user꞉> 
+("gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}})
+clj꞉user꞉> 
+#'user/unpacker
+clj꞉user꞉> 
+; IllegalArgumentException Don't know how to create ISeq from: java.lang.Long  clojure.lang.RT.seqFrom (RT.java:542)
+clj꞉user꞉> 
+#'user/unpacker
+clj꞉user꞉> 
+(2)
+clj꞉user꞉> 
+#'user/unpacker
+clj꞉user꞉> 
+(2)
+clj꞉user꞉> 
+#object[clojure.core$comp$fn__4727 0x75dde11e "clojure.core$comp$fn__4727@75dde11e"]
+clj꞉user꞉> 
+(("gdn" "cpn" ["2010" 20]) ("gdn" "waw" ["2011" 25]))
+clj꞉user꞉> 
+; CompilerException java.lang.RuntimeException: Unable to resolve symbol: v2 in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:1:1010) 
+clj꞉user꞉> 
+; CompilerException java.lang.UnsupportedOperationException: Can only recur from tail position, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:86:19) 
+clj꞉user꞉> 
+; CompilerException java.lang.UnsupportedOperationException: Can only recur from tail position, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:86:19) 
+clj꞉user꞉> 
+; CompilerException java.lang.UnsupportedOperationException: Can only recur from tail position, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:86:19) 
+clj꞉user꞉> 
+#'user/mpct
+clj꞉user꞉> 
+; IllegalArgumentException Don't know how to create ISeq from: java.lang.Long  clojure.lang.RT.seqFrom (RT.java:542)
+clj꞉user꞉> 
+; IllegalArgumentException Don't know how to create ISeq from: clojure.core$map  clojure.lang.RT.seqFrom (RT.java:542)
+clj꞉user꞉> 
+#'user/mpct
+clj꞉user꞉> 
+; IllegalArgumentException Don't know how to create ISeq from: clojure.core$map  clojure.lang.RT.seqFrom (RT.java:542)
+clj꞉user꞉> 
+#'user/mpct
+clj꞉user꞉> 
+; ArityException Wrong number of args (0) passed to: user/mpct  clojure.lang.AFn.throwArity (AFn.java:429)
+clj꞉user꞉> 
+; IllegalArgumentException Don't know how to create ISeq from: java.lang.Long  clojure.lang.RT.seqFrom (RT.java:542)
+clj꞉user꞉> 
+; CompilerException clojure.lang.ArityException: Wrong number of args (3) passed to: core/for, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:85:13) 
+clj꞉user꞉> 
+#'user/mpct
+clj꞉user꞉> 
+"k" "gdn" "k2" "cpn" "v" {"cpn" {"2010" 20}, "waw" {"2011" 25}} "v2" {"2010" 20}
+"k" "gdn" "k2" "waw" "v" {"cpn" {"2010" 20}, "waw" {"2011" 25}} "v2" {"2011" 25}
+"k" "cpn" "k2" "2010" "v" {"2010" 20} "v2" 20
+"k" "waw" "k2" "2011" "v" {"2011" 25} "v2" 25
+; IllegalArgumentException Don't know how to create ISeq from: java.lang.Long  clojure.lang.RT.seqFrom (RT.java:542)
+clj꞉user꞉> 
+#'user/flatten-map
+clj꞉user꞉> 
+#'user/flatten-map
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+; IllegalArgumentException Don't know how to create ISeq from: clojure.core$map  clojure.lang.RT.seqFrom (RT.java:542)
+clj꞉user꞉> 
+; CompilerException clojure.lang.ArityException: Wrong number of args (3) passed to: core/for, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:77:3) 
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+; IllegalArgumentException Don't know how to create ISeq from: clojure.core$map  clojure.lang.RT.seqFrom (RT.java:542)
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+#object[user$flatten_data 0x5bca7ab2 "user$flatten_data@5bca7ab2"]
+clj꞉user꞉> 
+; IllegalArgumentException Don't know how to create ISeq from: clojure.core$map  clojure.lang.RT.seqFrom (RT.java:542)
+clj꞉user꞉> 
+; IllegalArgumentException Don't know how to create ISeq from: clojure.core$map  clojure.lang.RT.seqFrom (RT.java:542)
+clj꞉user꞉> 
+; IllegalArgumentException Don't know how to create ISeq from: clojure.core$map  clojure.lang.RT.seqFrom (RT.java:542)
+clj꞉user꞉> 
+; IllegalArgumentException Don't know how to create ISeq from: clojure.core$map  clojure.lang.RT.seqFrom (RT.java:542)
+clj꞉user꞉> 
+; IllegalArgumentException Don't know how to create ISeq from: clojure.core$map  clojure.lang.RT.seqFrom (RT.java:542)
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+"gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}
+(1)
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+"gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}
+"cpn" {"2010" 20}
+"waw" {"2011" 25}
+"2010" 20
+; ClassCastException java.lang.String cannot be cast to clojure.lang.IPersistentCollection  clojure.core/conj--4345 (core.clj:82)
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+"===="
+"gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}
+; ClassCastException java.lang.String cannot be cast to clojure.lang.IPersistentCollection  clojure.core/conj--4345 (core.clj:82)
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+"===="
+"gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}
+"===="
+"cpn" {"2010" 20}
+"===="
+"waw" {"2011" 25}
+"===="
+"2010" 20
+"===="
+"2011" 25
+(["gdn" (["cpn" (["2010" 20])] ["waw" (["2011" 25])])])
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+"===="
+"gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}
+"===="
+"cpn" {"2010" 20}
+"===="
+"waw" {"2011" 25}
+"===="
+"2010" 20
+"===="
+"2011" 25
+(("gdn" ("cpn" ["2010" 20]) ("waw" ["2011" 25])))
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+"===="
+"gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}
+"===="
+"cpn" {"2010" 20}
+"===="
+"waw" {"2011" 25}
+"===="
+"2010" 20
+"===="
+"2011" 25
+((\g \d \n (\c \p \n ["2010" 20]) (\w \a \w ["2011" 25])))
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+; CompilerException java.lang.RuntimeException: Unable to resolve symbol: flatten-tree in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:82:1) 
+clj꞉user꞉> 
+#'user/flatten-tree
+clj꞉user꞉> 
+(("gdn" "cpn" "2010" 20 "waw" "2011" 25))
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+"===="
+"gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}
+"===="
+"cpn" {"2010" 20}
+"===="
+"2010" 20
+"===="
+"waw" {"2011" 25}
+"===="
+"2011" 25
+(("gdn" "cpn" "2010" 20 "waw" "2011" 25))
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+"===="
+"gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}
+"===="
+"cpn" {"2010" 20}
+"===="
+"2010" 20
+"===="
+"waw" {"2011" 25}
+"===="
+"2011" 25
+(["gdn" ("cpn" "2010" 20 "waw" "2011" 25)])
+clj꞉user꞉> 
+#'user/flatten-data
+clj꞉user꞉> 
+"===="
+"gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}
+"===="
+"cpn" {"2010" 20}
+"===="
+"2010" 20
+"===="
+"waw" {"2011" 25}
+"===="
+"2011" 25
+(["gdn" ("cpn" "some" "2010" 20 "waw" "some" "2011" 25)])
+clj꞉user꞉> 
+"===="
+"gdn" {"cpn" {"2010" 20}, "waw" {"2011" 25}}
+"===="
+"cpn" {"2010" 20}
+"===="
+"2010" 20
+"===="
+"waw" {"2011" 25}
+"===="
+"2011" 25
+(["gdn" ("cpn" nil "2010" 20 "waw" nil "2011" 25)])
+clj꞉user꞉> 

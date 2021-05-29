@@ -1,3 +1,5 @@
+(require '[clojure.string :as str])
+
 (defn deep-merge [& maps]
   ; for merging maps recursively 
   ; (deep-merge {:a {:b 10}} {:a {:d 5}}) => {:a {:b 10 :d 5}}
@@ -7,34 +9,52 @@
               (last xs)))]
     (reduce m maps)))
 
+(defn flatten-map [node]
+  (lazy-seq
+   (if-not (map? node)
+     (list node)
+     (mapcat flatten-map node))))
+
 ; patterns for matching
 ; todo: partial matching, for better help/error control flow
-(def re-command #"([C])\s+(\w+)\s+(\w+)\s+([0-9-]+)\s+(\d+)")
-(def re-search #"([S])")
 
+(def re-ws-split #"\s+")
 
-(defn parse-line [line]
-  (let [[_ command & args] (re-find re-command line)]
-    (prn "Parsing line: " line " => " command args)
+(defn parse-command-re [line]
+  (let [[command & args] (str/split line #"\s+")] ; split on whitespace
+    ;(prn "Parsing line: " line " => " command args)
     [command args]))
+
 
 (defn command-C [args]
   "Process C command args and return partial map"
   "Example return: {:Gdansk {:Copenhagen {:2010-11-03 10}}}"
   (when (not-any? nil? args); none of the args can be nil
     (let [[city-src city-dst date num-seats] args]
-      {(keyword city-src)
-       {(keyword city-dst)
-        {(keyword date) (Integer/parseInt num-seats)}}}))) ;using bigint as it parses string
+      {city-src
+       {city-dst
+        {date (Integer/parseInt num-seats)}}}))) ;using bigint as it parses string
+
+(defn command-S
+  ([data]
+   (get-in data-map args))
+  ([data city-src]
+   (seq (get data city-src))
+   (str city-src)))
 
 (defn parse-input []
   (loop [conn-data {}
          log []]
-    (let [line (read-line)
-          [command args] (parse-line line)]
+    (let [_              (prn "Input command:")
+          line           (read-line)
+          [command args] (parse-command-re line)]
       (case command
-        "Q" (prn "Exiting, last state:" conn-data log)
-        "C" (recur (deep-merge conn-data (command-C args)) (conj log line))))))
+        "Q"   (prn "Exiting, last state:" conn-data log)
+        "C"   (recur (deep-merge conn-data (command-C args)) (conj log line))
+        "S"   (prn (command-S conn-data args))
+        ;default
+        (do (prn "Error: Wrong command, please retry.")
+            (recur conn-data log))))))
 
 
 (def lines
@@ -42,9 +62,23 @@
    :missing "C Gdn Cop 2010"
    :b "C Gdn Cop 2011 15"})
 
+
 (-> (:a lines)
-    parse-line
+    parse-command-re
     second ;second is args vector
     command-C)
 
+(def data {"gdn" {"cpn" {"2010" 20}
+                  "waw" {"2011" 25}}})
 
+
+(defn flatten-data [m key]
+  (for [[k v] (seq m)]
+    (do
+      (prn "====")
+      (prn k v)
+      (if (map? v)
+        (conj [k] (flatten (flatten-data v key)))
+        (conj [key] k v)))))
+
+(flatten-data data nil)
