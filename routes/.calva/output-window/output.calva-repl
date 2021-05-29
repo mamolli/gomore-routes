@@ -42,3 +42,135 @@ clj꞉user꞉> 
 clj꞉user꞉> 
 #'user/parse-input
 clj꞉user꞉> 
+#'user/parse-input
+clj꞉user꞉> 
+#'user/parse-input
+clj꞉user꞉> 
+; RuntimeException Map literal must contain an even number of forms  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: }  clojure.lang.Util.runtimeException (Util.java:221)
+clj꞉user꞉> 
+#'user/parse-input
+clj꞉user꞉> 
+#'user/parse-input
+clj꞉user꞉> 
+; RuntimeException Invalid token: :  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: }  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: }  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: )  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: }  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: )  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: )  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: )  clojure.lang.Util.runtimeException (Util.java:221)
+clj꞉user꞉> 
+; RuntimeException Invalid token: :  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: }  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: }  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: )  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: }  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: )  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: )  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: )  clojure.lang.Util.runtimeException (Util.java:221)
+clj꞉user꞉> 
+#'user/deep-merge
+clj꞉user꞉> 
+; RuntimeException Invalid token: :  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: }  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: }  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: )  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: }  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: )  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: )  clojure.lang.Util.runtimeException (Util.java:221)
+; RuntimeException Unmatched delimiter: )  clojure.lang.Util.runtimeException (Util.java:221)
+clj꞉user꞉> 
+#'user/parse-line
+clj꞉user꞉> 
+#'user/parse-input
+clj꞉user꞉> 
+#'user/parse-input
+clj꞉user꞉> 
+#'user/parse-input
+clj꞉user꞉> 
+#'user/parse-input
+clj꞉user꞉> 
+#'user/parse-input
+clj꞉user꞉> 
+#'user/parse-input
+clj꞉user꞉> 
+#'user/parse-input
+clj꞉user꞉> 
+#'user/parse-input
+clj꞉user꞉> 
+#'user/parse-input
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("Gdn" "Cop" "2010" "20")
+["C" ("Gdn" "Cop" "2010" "20")]
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010" " => " "C" ("Gdn" "Cop" "201" "0")
+["C" ("Gdn" "Cop" "201" "0")]
+clj꞉user꞉> 
+#'user/parse-input-re
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010" " => " nil nil
+[nil nil]
+clj꞉user꞉> 
+; CompilerException java.lang.RuntimeException: Unable to resolve symbol: re-command in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:17:28) 
+clj꞉user꞉> 
+#'user/re-search
+clj꞉user꞉> 
+#'user/parse-line
+clj꞉user꞉> 
+"C Gdn Cop 2010"
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010" " => " nil nil
+[nil nil]
+clj꞉user꞉> 
+:a
+clj꞉user꞉> 
+:a
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("Gdn" "Cop" "2010" "20")
+; NumberFormatException null  java.lang.Integer.parseInt (Integer.java:542)
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("Gdn" "Cop" "2010" "20")
+; NumberFormatException null  java.lang.Integer.parseInt (Integer.java:542)
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("Gdn" "Cop" "2010" "20")
+; NumberFormatException null  java.lang.Integer.parseInt (Integer.java:542)
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("Gdn" "Cop" "2010" "20")
+; NumberFormatException null  java.lang.Integer.parseInt (Integer.java:542)
+clj꞉user꞉> 
+#object[user$parse_line 0x54519513 "user$parse_line@54519513"]
+clj꞉user꞉> 
+; RuntimeException EOF while reading, starting at line 46  clojure.lang.Util.runtimeException (Util.java:221)
+clj꞉user꞉> 
+{:a "C Gdn Cop 2010 20", :missing "C Gdn Cop 2010", :b "C Gdn Cop 2011 15"}
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("Gdn" "Cop" "2010" "20")
+["C" ("Gdn" "Cop" "2010" "20")]
+clj꞉user꞉> 
+#object[user$command_C 0x53a170d5 "user$command_C@53a170d5"]
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("Gdn" "Cop" "2010" "20")
+; NumberFormatException null  java.lang.Integer.parseInt (Integer.java:542)
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("Gdn" "Cop" "2010" "20")
+["C" ("Gdn" "Cop" "2010" "20")]
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("Gdn" "Cop" "2010" "20")
+(("Gdn" "Cop" "2010" "20"))
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("Gdn" "Cop" "2010" "20")
+; NumberFormatException null  java.lang.Integer.parseInt (Integer.java:542)
+clj꞉user꞉> 
+#object[clojure.core$rest__4343 0x1c4319ab "clojure.core$rest__4343@1c4319ab"]
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("Gdn" "Cop" "2010" "20")
+(("Gdn" "Cop" "2010" "20"))
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("Gdn" "Cop" "2010" "20")
+("Gdn" "Cop" "2010" "20")
+clj꞉user꞉> 
+"Parsing line: " "C Gdn Cop 2010 20" " => " "C" ("Gdn" "Cop" "2010" "20")
+{:Gdn {:Cop {:2010 20}}}
+clj꞉user꞉> 
