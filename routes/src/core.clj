@@ -1,16 +1,19 @@
+
+; patterns for matching
 (def parse-input-re #"([Q])\s*(\w+)?\s*(\w+)?\s*([0-9-]+)?\s*(\d+)?")
+(def parse-search-re #"([S])")
+
+(defn parse-line [line]
+  (let [[_ command & args] (re-find parse-input-re line)]
+    (prn "Parsing line: " line " => " command args)
+    [command args]))
 
 (defn parse-input []
-  (loop [conn-data {}]
+  (loop [conn-data {}
+         log []]
     (let [line (read-line)
-          [_ command & rest ] (re-find parse-input-re line)
-          _ (prn "t" command rest)]
+          [command args] (parse-line line)]
       (case command
-        "Q" "run some"
-        "R" "run some code")
-            
-      (if (= line "Q")
-        (prn "Bye!")
-        (recur (assoc conn-data :last line))))))
-      
+        "Q" (prn "Exiting, last state:" conn-data log)
+        "C" (assoc conn-data :last line)))))
 

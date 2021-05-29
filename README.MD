@@ -18,16 +18,15 @@ We are not dealing with nested asts, but single line commands. For more advanced
 The proposed DSL:
 C - for creating (trip) relation between 2 cities
 R - for creating (return trip) reversed relation by inverting last creation
-S - for search
-
+S - for searching relations
+Q - for quiting (see [#extending-task])
 
 
 Database:
-This type on scale would require evaluating some graph database solutions. I have not worked with any.
+This task typically would require evaluating some graph/other database solutions depending on performance expectation.
 
-The description of the problem doesn't indicate we are going to do it, at scale.
-So we will most like use map(associative array) as our main datastructure.
-
+The description of the problem doesn't indicate we are going to do it, at scale. So we will most like use map(associative array) as our main datastructure for holding state. I introduce additional
+"stateful" element `log`. I think it might be useful generally for debug, but I need it for getting last created relation.
 
 # Extending the task
 I had a strong urge to extend the task:
