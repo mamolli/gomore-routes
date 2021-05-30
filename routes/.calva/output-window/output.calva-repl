@@ -92,3 +92,22 @@ clj꞉user꞉> 
 clj꞉user꞉> 
 #'user/line->routes-db
 clj꞉user꞉> 
+; CompilerException java.lang.RuntimeException: Unable to resolve symbol: line->routes-db in this context, compiling:(/home/mamolli/projects/trainspotting/routes/test/routes/core_test.clj:18:8) 
+clj꞉routes.core-test꞉> 
+nil
+clj꞉routes.core-test꞉> 
+; CompilerException java.lang.RuntimeException: Unable to resolve symbol: line->routes-db in this context, compiling:(/home/mamolli/projects/trainspotting/routes/test/routes/core_test.clj:18:8) 
+clj꞉routes.core-test꞉> 
+; CompilerException java.lang.RuntimeException: Unable to resolve symbol: line->routes-db in this context, compiling:(/home/mamolli/projects/trainspotting/routes/test/routes/core_test.clj:18:8) 
+clj꞉routes.core-test꞉> 
+; CompilerException java.lang.RuntimeException: No such namespace: r, compiling:(/home/mamolli/projects/trainspotting/routes/test/routes/core_test.clj:18:8) 
+clj꞉routes.core-test꞉> 
+nil
+clj꞉routes.core-test꞉> 
+; CompilerException java.lang.RuntimeException: No such var: r/line->routes-db, compiling:(/home/mamolli/projects/trainspotting/routes/test/routes/core_test.clj:18:8) 
+clj꞉routes.core-test꞉> 
+; CompilerException java.lang.RuntimeException: No such var: r/line->routes-db, compiling:(/home/mamolli/projects/trainspotting/routes/test/routes/core_test.clj:18:8) 
+clj꞉routes.core-test꞉> 
+nil
+clj꞉routes.core-test꞉> 
+; nREPL Connection was closed
