@@ -1,60 +1,100 @@
 (require '[clojure.string :as str])
+(require '[clj-time.core :as clj-time])
+(require '[clj-time.format :as clj-timef])
 
-(defn deep-merge [& maps]
-  ; for merging maps recursively 
-  ; (deep-merge {:a {:b 10}} {:a {:d 5}}) => {:a {:b 10 :d 5}}
-  (letfn [(m [& xs]
-            (if (some #(and (map? %) (not (record? %))) xs)
-              (apply merge-with m xs)
-              (last xs)))]
-    (reduce m maps)))
-
-(defn flatten-map [node]
-  (lazy-seq
-   (if-not (map? node)
-     (list node)
-     (mapcat flatten-map node))))
-
-; patterns for matching
-; todo: partial matching, for better help/error control flow
-
-(def re-ws-split #"\s+")
+(def date-formatter 
+  (clj-timef/formatter "yyyy-MM-dd"))
 
 (defn parse-command-re [line]
   (let [[command & args] (str/split line #"\s+")] ; split on whitespace
-    ;(prn "Parsing line: " line " => " command args)
     [command args]))
 
+(defn str->int [int-string]
+  (Integer/parseInt int-string))
 
-(defn command-C [args]
-  "Process C command args and return partial map"
-  "Example return: {:Gdansk {:Copenhagen {:2010-11-03 10}}}"
-  (when (not-any? nil? args); none of the args can be nil
-    (let [[city-src city-dst date num-seats] args]
-      {city-src
-       {city-dst
-        {date (Integer/parseInt num-seats)}}}))) ;using bigint as it parses string
+(defn str->date [date-string]
+  (->> date-string
+       (clj-timef/parse date-formatter)))
 
-(defn command-S
-  ([data]
-   (get-in data-map args))
-  ([data city-src]
-   (seq (get data city-src))
-   (str city-src)))
+(defn args->route-map
+  "Parses single line of input into route-map"
+  [city-src city-dst date seats-num]
+  {:city-src city-src
+   :city-dst city-dst
+   :date (str->date date)
+   :seats (Integer/parseInt seats-num)})
+
+(defn line->routes-db [routes-db line]
+  (let [[command args] (parse-command-re line)]
+    (case command
+      "Q" (prn "Exiting, last state:" routes-db)
+      "C" (try
+            (conj routes-db (apply args->route-map args))
+            (catch Exception e
+              (do (prn "Error: Cannot parse args" line "error: " (.getMessage e))
+                  routes-db)))
+      "S" (prn (str routes-db args))
+      "R" (prn "Redo")
+     ;default
+      (do (prn "Error: Wrong command, please retry.")
+          routes-db))))
 
 (defn parse-input []
-  (loop [conn-data {}
+  (loop [routes-db []
          log []]
-    (let [_              (prn "Input command:")
-          line           (read-line)
-          [command args] (parse-command-re line)]
-      (case command
-        "Q"   (prn "Exiting, last state:" conn-data log)
-        "C"   (recur (deep-merge conn-data (command-C args)) (conj log line))
-        "S"   (prn (command-S conn-data args))
-        ;default
-        (do (prn "Error: Wrong command, please retry.")
-            (recur conn-data log))))))
+    (let [_          (prn "Routes: " routes-db "\nLog: " log)
+          _          (prn "Input command:")
+          line       (read-line)
+          routes-db  (line->routes-db line routes-db)]
+      (when routes-db
+        (recur routes-db (conj log line))))))
+
+
+(defn filter-routes
+  [routes-db city-src city-dst from-date* to-date seats-min]
+  ; todo: this function takes routes-db + arguments as strings - it should take more concrete type
+  ; from-date* behaves differently depending on to-date
+  (->> routes-db
+       (filter (if city-src
+                 #(= (:city-src %) city-src)
+                 identity))
+       (filter (if city-dst
+                 #(= (:city-dst %) city-dst)
+                 identity))
+       (filter (if (and from-date* (nil? to-date))
+                 #(clj-time/equal? (:date %) (str->date from-date*))
+                 identity))
+       (filter (if (and from-date* to-date)
+                 #(clj-time/within?
+                   (str->date from-date*)
+                   (str->date to-date)
+                   (:date %))
+                 identity))
+       (filter (if seats-min
+                 #(<= (str->int seats-min) (:seats %))
+                 identity))))
+
+(defn route->str [route]
+  [(:city-src route) (:city-dst route) (:date route)]
+  (str))
+
+
+
+(route->str (first test-db))
+(def route (first test-db))
+
+(str/join " "
+ [(:city-src route)
+  (:city-dst route)
+  (clj-timef/unparse 
+   (clj-timef/formatter "yyyy-MM-dd") 
+   (:date route))])
+
+(def test-db
+  (-> []
+      (line->routes-db "C Gdn Krk 2010-03-04 11")
+      (line->routes-db "C Gdn Cpg 2010-03-02 33")))
+
 
 
 (def lines
@@ -63,32 +103,3 @@
    :b "C Gdn Cop 2011 15"})
 
 
-(-> (:a lines)
-    parse-command-re
-    second ;second is args vector
-    command-C)
-
-(def data {"gdn" {"cpn" {"2010" 20 "2013" 43}
-                  "waw" {"2011" 25}}})
-
-(defn flt [s]
-  (mapcat
-   #(if (every? coll? %)
-        (flt %)
-        (list %)) s))
-
-(defn flatten-data
-  ([m]
-   (flatten-data m []))
-  ([m key]
-   (if (map? m)
-     (for [[k v] m] (flatten-data v (conj key k)))
-     (conj key m))))
-
-(flt (flatten-data data []))
-
-
-(for [[k v] data]
-  [k v])
-
-(flatten-data data [])
