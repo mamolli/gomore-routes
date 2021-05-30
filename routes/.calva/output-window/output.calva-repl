@@ -14,311 +14,81 @@
 ;   - `alt+up` and `alt+down` traverse up and down the REPL command history
 ;      when the cursor is after the last contents at the prompt
 ;   - Clojure lines in stack traces are peekable and clickable.
-clj꞉user꞉>  ; Use `alt+enter` to evaluate
-#'user/date
 clj꞉user꞉> 
-["2012-03" "2012" "03"]
+#'user/swap-indexes
 clj꞉user꞉> 
-["2012-03-23" "2012" "03" "23"]
+; CompilerException java.lang.RuntimeException: Unable to resolve symbol: parse-command-re in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:43:24) 
 clj꞉user꞉> 
-; NumberFormatException Invalid number: 2012-03-  clojure.lang.LispReader.readNumber (LispReader.java:330)
+; CompilerException java.lang.RuntimeException: Unable to resolve symbol: ­ in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:1:1010) 
+; CompilerException java.lang.RuntimeException: Unable to resolve symbol: last-create-log in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:56:34) 
+; CompilerException java.lang.RuntimeException: Unable to resolve symbol: test-db in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:122:13) 
+; CompilerException java.lang.RuntimeException: Unable to resolve symbol: test-db in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:123:12) 
+; CompilerException java.lang.IllegalStateException: Attempting to call unbound fn: #'user/line->routes-db, compiling:(form-init7506502181520823936.clj:129:7) 
 clj꞉user꞉> 
-#'user/date
+#'user/str->date
 clj꞉user꞉> 
-nil
-clj꞉user꞉> 
-nil
-clj꞉user꞉> 
-("2012" "03")
-clj꞉user꞉> 
-("2012" "03")
-clj꞉user꞉> 
-#'user/date
-clj꞉user꞉> 
-("2012" "03" "12")
-clj꞉user꞉> 
-["2012-03-12" "2012" "03" "12"]
-clj꞉user꞉> 
-; CompilerException java.lang.RuntimeException: Unable to resolve symbol: city-src in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:1:1010) 
-clj꞉user꞉> 
-; CompilerException java.lang.RuntimeException: Unable to resolve symbol: city-src in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:1:1010) 
-clj꞉user꞉> 
-; CompilerException java.lang.RuntimeException: Unable to resolve symbol: city-src in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:1:1010) 
-clj꞉user꞉> 
-; CompilerException java.lang.RuntimeException: Unable to resolve symbol: city-src in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:1:1010) 
-clj꞉user꞉> 
-#'user/input->route
-clj꞉user꞉> 
-#'user/lines
-clj꞉user꞉> 
-#'user/input->route
-clj꞉user꞉> 
-#'user/args
-clj꞉user꞉> 
-#'user/input->route
-clj꞉user꞉> 
-; CompilerException java.lang.RuntimeException: No such namespace: clj-time, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:46:10) 
-clj꞉user꞉> 
-; CompilerException java.lang.RuntimeException: No such namespace: clj-time, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:46:10) 
-clj꞉user꞉> 
-nil
-clj꞉user꞉> 
-; ArityException Wrong number of args (1) passed to: core/local-date  clojure.lang.AFn.throwArity (AFn.java:429)
-clj꞉user꞉> 
-#'user/input->route
-clj꞉user꞉> 
-; CompilerException java.lang.RuntimeException: Unable to find static field: parseInt in class java.lang.Integer, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:49:15) 
-clj꞉user꞉> 
-#'user/input->route
-clj꞉user꞉> 
-#'user/input->route
-clj꞉user꞉> 
-("2012" "03" "12")
-clj꞉user꞉> 
-#'user/input->route
-clj꞉user꞉> 
-; CompilerException java.lang.RuntimeException: Unable to resolve symbol: parse-command-re in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:67:26) 
-clj꞉user꞉> 
-; CompilerException java.lang.RuntimeException: No such namespace: str, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:25:26) 
-clj꞉user꞉> 
-; CompilerException java.lang.RuntimeException: No such namespace: str, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:25:26) 
-; CompilerException java.lang.RuntimeException: Unable to resolve symbol: data-map in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:30:4) 
-clj꞉user꞉> 
-nil
-clj꞉user꞉> 
-; CompilerException java.lang.RuntimeException: Unable to resolve symbol: data-map in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:30:4) 
-clj꞉user꞉> 
-#'user/command-S
-clj꞉user꞉> 
-#'user/parse-input
-clj꞉user꞉> 
-; CompilerException java.lang.RuntimeException: Unable to resolve symbol: log in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:60:11) 
-clj꞉user꞉> 
-#'user/parse-line
-clj꞉user꞉> 
-#'user/parse-line
-clj꞉user꞉> 
-#'user/parse-line
-clj꞉user꞉> 
-#'user/parse-input
-clj꞉user꞉> 
-#'user/parse-line
-clj꞉user꞉> 
-#'user/parse-input
+; CompilerException java.lang.RuntimeException: Unable to resolve symbol: ­ in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:1:1010) 
 clj꞉user꞉> 
 #'user/line->routes-db
 clj꞉user꞉> 
-#'user/parse-input
+#'user/add-route
 clj꞉user꞉> 
-#'user/parse-input
-clj꞉user꞉> 
-; CompilerException java.lang.RuntimeException: Unable to resolve symbol: args->route-map in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:66:29) 
+#'user/swap-indexes
 clj꞉user꞉> 
 #'user/args->route-map
 clj꞉user꞉> 
-#'user/line->routes-db
+; CompilerException java.lang.RuntimeException: Unable to resolve symbol: ­ in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:1:1010) 
+; IllegalArgumentException Don't know how to create ISeq from: clojure.lang.Var$Unbound  clojure.lang.RT.seqFrom (RT.java:542)
+; CompilerException java.lang.IllegalArgumentException: Don't know how to create ISeq from: clojure.lang.Var$Unbound, compiling:(form-init7506502181520823936.clj:122:12) 
+; CompilerException java.lang.ClassCastException: java.lang.Character cannot be cast to java.lang.CharSequence, compiling:(form-init7506502181520823936.clj:128:7) 
 clj꞉user꞉> 
-; CompilerException clojure.lang.ArityException: Wrong number of args (1) passed to: user/line->routes-db, compiling:(form-init5523214651210813304.clj:77:4) 
+; CompilerException java.lang.RuntimeException: Unable to resolve symbol: ­ in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:1:1010) 
 clj꞉user꞉> 
-#'user/test-db
-clj꞉user꞉> 
-#'user/test-db
-clj꞉user꞉> 
-#'user/filter-routes
-clj꞉user꞉> 
-#'user/filter-routes
-clj꞉user꞉> 
-#'user/filter-routes
-clj꞉user꞉> 
-; ArityException Wrong number of args (1) passed to: core/local-date  clojure.lang.AFn.throwArity (AFn.java:429)
-clj꞉user꞉> 
-; ArityException Wrong number of args (1) passed to: core/local-date  clojure.lang.AFn.throwArity (AFn.java:429)
-clj꞉user꞉> 
-; ArityException Wrong number of args (1) passed to: core/local-date  clojure.lang.AFn.throwArity (AFn.java:429)
-clj꞉user꞉> 
-false
-clj꞉user꞉> 
-false
-clj꞉user꞉> 
-false
-clj꞉user꞉> 
-true
-clj꞉user꞉> 
-true
-clj꞉user꞉> 
-true
-clj꞉user꞉> 
-false
-clj꞉user꞉> 
-#'user/str->date
-clj꞉user꞉> 
-#'user/str->date
-clj꞉user꞉> 
-#'user/str->date
-clj꞉user꞉> 
-#'user/str->date
-clj꞉user꞉> 
-#'user/str->date
-clj꞉user꞉> 
-#'user/str->date
-clj꞉user꞉> 
-#'user/str->date
-clj꞉user꞉> 
-#'user/str->date
-clj꞉user꞉> 
-#'user/str->date
-clj꞉user꞉> 
-#'user/str->date
-clj꞉user꞉> 
-#'user/str->date
-clj꞉user꞉> 
-#'user/str->date
-clj꞉user꞉> 
-#'user/str->date
-clj꞉user꞉> 
-#'user/str->date
-clj꞉user꞉> 
-#'user/str->date
-clj꞉user꞉> 
-#'user/str->int
-clj꞉user꞉> 
-#'user/str->date
-clj꞉user꞉> 
-#'user/filter-routes
-clj꞉user꞉> 
-; ClassCastException org.joda.time.LocalDate cannot be cast to org.joda.time.ReadableInstant  clj-time.core/interval (core.clj:609)
-clj꞉user꞉> 
-; CompilerException java.lang.RuntimeException: No such var: clj-time/date, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:18:8) 
-clj꞉user꞉> 
-#'user/str->date
-clj꞉user꞉> 
-#object[org.joda.time.Interval 0x1b2d1597 "2010-02-03T00:00:00.000Z/2010-02-03T00:00:00.000Z"]
-clj꞉user꞉> 
-false
-clj꞉user꞉> 
-false
-clj꞉user꞉> 
-false
-clj꞉user꞉> 
-false
-clj꞉user꞉> 
-false
-clj꞉user꞉> 
-false
-clj꞉user꞉> 
-false
-clj꞉user꞉> 
-#object[org.joda.time.Interval 0x63d6e152 "2010-02-03T00:00:00.000Z/2010-02-04T00:00:00.000Z"]
-clj꞉user꞉> 
-true
-clj꞉user꞉> 
-true
-clj꞉user꞉> 
-true
-clj꞉user꞉> 
-true
-clj꞉user꞉> 
-true
-clj꞉user꞉> 
-true
-clj꞉user꞉> 
-false
-clj꞉user꞉> 
-false
-clj꞉user꞉> 
-false
-clj꞉user꞉> 
-false
-clj꞉user꞉> 
-false
-clj꞉user꞉> 
-; IllegalArgumentException No implementation of method: :equal? of protocol: #'clj-time.core/DateTimeProtocol found for class: org.joda.time.Interval  clojure.core/-cache-protocol-fn (core_deftype.clj:568)
-clj꞉user꞉> 
-true
-clj꞉user꞉> 
-true
-clj꞉user꞉> 
-true
-clj꞉user꞉> 
-false
-clj꞉user꞉> 
-false
-clj꞉user꞉> 
-19
-clj꞉user꞉> 
-376
-clj꞉user꞉> 
-#'user/filter-routes
+#'user/parse-input
 clj꞉user꞉> 
 #'user/line->routes-db
 clj꞉user꞉> 
-#'user/test-db
-clj꞉user꞉> 
-#'user/test-db
-clj꞉user꞉> 
 #'user/filter-routes
 clj꞉user꞉> 
-#'user/test-db
+#'user/route->str
 clj꞉user꞉> 
-#'user/test-db
+#'user/last-create-log
 clj꞉user꞉> 
-#'user/line->routes-db
+#'user/add-route
 clj꞉user꞉> 
-#'user/test-db
+; CompilerException java.lang.RuntimeException: Unable to resolve symbol: ­ in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:1:1010) 
 clj꞉user꞉> 
-; CompilerException java.lang.ClassCastException: clojure.lang.PersistentVector cannot be cast to java.lang.CharSequence, compiling:(form-init5523214651210813304.clj:80:7) 
+; CompilerException java.lang.RuntimeException: Unable to resolve symbol: ­ in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:1:1010) 
 clj꞉user꞉> 
-#'user/line->routes-db
+#'user/swap-indexes
 clj꞉user꞉> 
-#'user/test-db
+#'user/swap-indexes
 clj꞉user꞉> 
 #'user/args->route-map
 clj꞉user꞉> 
+; CompilerException java.lang.RuntimeException: Unable to resolve symbol: log in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:93:32) 
+clj꞉user꞉> 
 #'user/line->routes-db
 clj꞉user꞉> 
-#'user/test-db
+["C" ("2121")]
 clj꞉user꞉> 
-#'user/filter-routes
+["C" ("2121")]
 clj꞉user꞉> 
-; CompilerException java.lang.RuntimeException: Too many arguments to def, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:76:1) 
+#'user/lx
 clj꞉user꞉> 
-#'user/route->str
+["C" ("G" "K" "2010-30-01" "2")]
 clj꞉user꞉> 
-("Gdn" "Krk" #object[org.joda.time.DateTime 0xce257f1 "2010-03-04T00:00:00.000Z"] 11)
+("G" "K" "2010-30-01" "2")
 clj꞉user꞉> 
-nil
+("G" "K" "2010-30-01" "2")
 clj꞉user꞉> 
-nil
+; ClassCastException clojure.lang.PersistentVector$ChunkedSeq cannot be cast to clojure.lang.IFn  user/swap-indexes (form-init7506502181520823936.clj:29)
 clj꞉user꞉> 
-#'user/route->str
+; ClassCastException clojure.lang.PersistentVector$ChunkedSeq cannot be cast to clojure.lang.IFn  user/swap-indexes (form-init7506502181520823936.clj:29)
 clj꞉user꞉> 
-"GdnKrk2010-03-04T00:00:00.000Z"
+#'user/swap-indexes
 clj꞉user꞉> 
-; CompilerException java.lang.RuntimeException: Unable to resolve symbol: route in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:78:4) 
+#'user/line->routes-db
 clj꞉user꞉> 
-#'user/route
-clj꞉user꞉> 
-["Gdn" "Krk" #object[org.joda.time.DateTime 0xce257f1 "2010-03-04T00:00:00.000Z"]]
-clj꞉user꞉> 
-["Gdn" "Krk" #object[org.joda.time.DateTime 0xce257f1 "2010-03-04T00:00:00.000Z"]]
-clj꞉user꞉> 
-"Gdn Krk 2010-03-04T00:00:00.000Z"
-clj꞉user꞉> 
-; ClassCastException org.joda.time.DateTime cannot be cast to org.joda.time.DateTimeZone  clj-time.format/formatter (format.clj:47)
-clj꞉user꞉> 
-; ClassCastException org.joda.time.DateTime cannot be cast to java.lang.String  clj-time.format/parse (format.clj:156)
-clj꞉user꞉> 
-"Gdn Krk 20100304"
-clj꞉user꞉> 
-"Gdn Krk 2010-03-04"
-clj꞉user꞉> 
-nil
-clj꞉user꞉> 
-#'user/str->date
-clj꞉user꞉> 
-; CompilerException java.lang.RuntimeException: Unable to resolve symbol: date-formatter in this context, compiling:(/home/mamolli/projects/trainspotting/routes/src/core.clj:17:8) 
-clj꞉user꞉> 
-#'user/date-formatter
-clj꞉user꞉> 
-#'user/str->date
+#'user/line->routes-db
 clj꞉user꞉> 

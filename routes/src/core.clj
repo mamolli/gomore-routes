@@ -2,7 +2,8 @@
 (require '[clj-time.core :as clj-time])
 (require '[clj-time.format :as clj-timef])
 
-(def date-formatter 
+(def date-formatter
+  "Date formatter that we use for serializing/deserializing"
   (clj-timef/formatter "yyyy-MM-dd"))
 
 (defn parse-command-re [line]
@@ -17,43 +18,45 @@
        (clj-timef/parse date-formatter)))
 
 (defn args->route-map
-  "Parses single line of input into route-map"
-  [city-src city-dst date seats-num]
+  "Takes list of arguments and converts them to route-map"
+  [[city-src city-dst date seats-num]]
   {:city-src city-src
    :city-dst city-dst
    :date (str->date date)
-   :seats (Integer/parseInt seats-num)})
+   :seats (Integer/parseInt seats-num)})­
 
-(defn line->routes-db [routes-db line]
-  (let [[command args] (parse-command-re line)]
-    (case command
-      "Q" (prn "Exiting, last state:" routes-db)
-      "C" (try
-            (conj routes-db (apply args->route-map args))
-            (catch Exception e
-              (do (prn "Error: Cannot parse args" line "error: " (.getMessage e))
-                  routes-db)))
-      "S" (prn (str routes-db args))
-      "R" (prn "Redo")
-     ;default
-      (do (prn "Error: Wrong command, please retry.")
+(defn swap-indexes 
+  "Takes vector-able v, two indexes i j, swaps values between indexes"
+  [v i j]
+  (let [v (vec v)]
+    (assoc v j (v i) i (v j))))
+
+(defn add-route [routes-db args]
+  (try
+    (conj routes-db (args->route-map args))
+    (catch Exception e
+      (do (prn "Error: Cannot parse args" args "error: " (.getMessage e))
           routes-db))))
 
-(defn parse-input []
-  (loop [routes-db []
-         log []]
-    (let [_          (prn "Routes: " routes-db "\nLog: " log)
-          _          (prn "Input command:")
-          line       (read-line)
-          routes-db  (line->routes-db line routes-db)]
-      (when routes-db
-        (recur routes-db (conj log line))))))
+(defn last-create-log [log]
+  (last (filter #(re-matches #"C.*" %) log)))
 
+(defn route->str [route]
+  (str/join " "
+   [(:city-src route)
+    (:city-dst route)
+    (clj-timef/unparse 
+     (clj-timef/formatter "yyyy-MM-dd") 
+     (:date route))
+    (:seats route)]))
 
 (defn filter-routes
-  [routes-db city-src city-dst from-date* to-date seats-min]
-  ; todo: this function takes routes-db + arguments as strings - it should take more concrete type
+  "Filtering routes using positional parameters"
+  [routes-db [city-src city-dst from-date* to-date seats-min]]
+  ; todo: this function takes routes-db + arguments as list of strings
+  ; it should take more concrete structures 
   ; from-date* behaves differently depending on to-date
+  ; we are filtering on each param treating nils as skips
   (->> routes-db
        (filter (if city-src
                  #(= (:city-src %) city-src)
@@ -74,21 +77,59 @@
                  #(<= (str->int seats-min) (:seats %))
                  identity))))
 
-(defn route->str [route]
-  [(:city-src route) (:city-dst route) (:date route)]
-  (str))
+(defn search-routes [routes-db args]
+  (->> [routes-db args]
+       (apply filter-routes)
+       (map route->str)
+       (str/join "\n")))
+
+;todo: print should be taken outside of this function
+;in this whole function, we route based on last line from log
+;we take routes-db and log and return routes-db or nil
+;routes-db is actively modified, log is only for reading
+(defn line->routes-db [routes-db log]
+  (let [line           (last log) ; todo: verify if string or vec
+        [command args] (parse-command-re line)]
+    (case command
+      "Q" (prn "Exiting, last state:" routes-db)
+      "C" (add-route routes-db args)
+      "S" (let [output]
+            (do
+              (println output)
+              routes-db))
+      ;todo: R, actually executes an effectful command that is not logged/expanded 
+      "R" (let  [[_ last-args] (-> log
+                                   last-create-log
+                                   parse-command-re)
+                 last-args-r   (swap-indexes last-args 0 1)] ; we swap city-src and city-dest
+            (add-route routes-db last-args-r))
+      ;default
+      (do (prn "Error: Wrong command, please retry.")
+          routes-db))))
+
+(defn parse-input []
+  (loop [routes-db []
+         log []]
+    (let [
+          _          (prn "Input command:")
+          line       (read-line)
+          log*       (conj log line)
+          routes-db* (line->routes-db routes-db log*)]
+      (when routes-db*
+        (recur routes-db* log*)))))
+
+
+
+
+(def lx ["C 21321312 321" "D 2121 " "R 2121" "C G K 2010-30-01 2"])
+
 
 
 
 (route->str (first test-db))
 (def route (first test-db))
 
-(str/join " "
- [(:city-src route)
-  (:city-dst route)
-  (clj-timef/unparse 
-   (clj-timef/formatter "yyyy-MM-dd") 
-   (:date route))])
+
 
 (def test-db
   (-> []
