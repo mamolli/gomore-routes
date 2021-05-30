@@ -17,7 +17,10 @@ The proposed DSL:
 
 We should recognize the most common pattern:
 `COMMAND ARG1 ARG2 ARG3`
-for example: `C Gdansk Coppenhagen 2018-10-01 5`
+for example: `C Gdansk Coppenhagen 2018-10-01 5`.
+At parser level I dont think we should see more speciality of ARGS.
+So we expect to get 2 items `COMMAND` `[ARGS]` out of input expression.
+
 
 Initial `COMMAND` list:
 C - for creating (trip) relation between 2 cities
@@ -27,7 +30,7 @@ Q - for quiting (see [#extending-task])
 
 
 We have to make some assumptions on the DSL.
-* We expect the parser to take positional arguments.
+* We expect the parser to take positional arguments in certain order. Optionality is achieved by neglecting to provide last argument.
 * Valid expression matches and returns vector without nils.
 * If the line is not parsed to valid expression, we will print error message, some help and prompt again for user input.
 * If the value is already in "database" I am going to treat the new input values as override/correction.
