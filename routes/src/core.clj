@@ -68,17 +68,27 @@
     second ;second is args vector
     command-C)
 
-(def data {"gdn" {"cpn" {"2010" 20}
+(def data {"gdn" {"cpn" {"2010" 20 "2013" 43}
                   "waw" {"2011" 25}}})
 
+(defn flt [s]
+  (mapcat
+   #(if (every? coll? %)
+        (flt %)
+        (list %)) s))
 
-(defn flatten-data [m key]
-  (for [[k v] (seq m)]
-    (do
-      (prn "====")
-      (prn k v)
-      (if (map? v)
-        (conj [k] (flatten (flatten-data v key)))
-        (conj [key] k v)))))
+(defn flatten-data
+  ([m]
+   (flatten-data m []))
+  ([m key]
+   (if (map? m)
+     (for [[k v] m] (flatten-data v (conj key k)))
+     (conj key m))))
 
-(flatten-data data nil)
+(flt (flatten-data data []))
+
+
+(for [[k v] data]
+  [k v])
+
+(flatten-data data [])
