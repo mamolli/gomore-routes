@@ -22,11 +22,11 @@ At parser level I dont think we should see more speciality of ARGS.
 So we expect to get 2 items `COMMAND` `[ARGS]` out of input expression. This way we have one function for routing between commands implementations.
 
 Initial `COMMAND` list:
-C - for creating (trip) relation between 2 cities
-R - for creating (return trip) reversed relation by inverting last creation
-_R should create a command to be reprocessed, but log is only an added feature_
-S - for searching relations
-Q - for quiting (see [#extending-task])
+* C - for creating (trip) relation between 2 cities
+* R - for creating (return trip) reversed relation by inverting last creation
+_R should recreate a command to be reprocessed_
+* S - for searching relations
+* Q - for quiting (see [#extending-task])
 
 We have to make some assumptions on the DSL.
 * We expect the parser to take positional arguments in certain order. Optionality is achieved by skipping to provide last argument.
@@ -59,7 +59,7 @@ _Note: Normally, I would discuss this in broader group. I understand in typical 
 # Building/running project
 With leiningen installed run `lein run`.
 If you don't have leiningen but have java installed, try: `java -jar routes-0.1.0-SNAPSHOT-standalone.jar`. 
-// I am aware that leaving binary files in git is not the best practice. Its for easy access.
+_I am aware that leaving binary files in git is not the best practice. Its for easy access._
 
 # Tests 
 I tried to deliver some test - mostly on the most outer layer(Run command, check output).
