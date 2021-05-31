@@ -1,0 +1,500 @@
+              (last xs)))]
+    (reduce m maps)))
+(deep-merge a b)
+(command-C ["Gdn" "Waw"])
+(command-C ["Gdn" "Waw" "2010-01-2"])
+(command-C ["Gdn" "Waw" "2010-01-2" 5])
+(bigint "111111111111111111111111111111111111111111111111111")
+(int "111111111111111111111111111111111111111111111111111")
+(int "1111")
+(Integer/parseInt "1")
+(command-C ["Gdn" "Waw" "2010-01-2" 5])
+(command-C ["Gdn" "Waw" "2010-01-2" 10])
+(Integer/parseInt 2)
+(Integer/parseInt "2")
+(command-C ["Gdn" "Waw" "2010-01-2" "10"])
+(parse-input)
+(parse-line "C "
+)
+(rest [1 2 3])(
+(rest [1 2 3])
+))
+(rest [1 2 3])
+(parse-input)
+re-general
+(re-find re-general "Q 20 20 20")
+(re-find re-general "Q 20 20 20 20")
+(re-find re-general "Q 20 2dsa0 20 20")
+(require '[clojure.string :as str])
+(str/split "Q 20 202 23")
+(str/split " " "Q 20 202 23")
+(str/split #" " "Q 20 202 23")
+(str/split "Q 20 202 23" #"\w")
+(str/split "\w" "Q 20 202 23")
+(str/split "Q 20 202 23" #"\w")
+(str/split "Q 20 202 23" #"\w+")
+(str/split "Q 20 202 23" #"\W+")
+(str/split "Q 20 202 23" #"\s+")
+(str/split "Q 20 202 23" #"\s")
+(str/split "Q 20 202 23" #"\s+")
+(let [command & args] (str/split "Q 20 202 23" #"\s+") (prn command args))
+(let [command & args] (str/split "Q 20 202 23" #"\s+")] (prn command args))
+(let [[command & args] (str/split "Q 20 202 23" #"\s+")] (prn command args))
+(parse-input)
+(get-in [:a] {:a 2})
+(get-in {:a 2} [:a])
+(get-in {:a 2} [])
+(command-S {:a 2} [])
+(get {:a 2} [])
+(get {:a 2} :a)
+(def data {"gdn": {"cpn: {"2010" 20}}})
+(def data {"gdn": {"cpn: {"2010" 20}}}})
+(def data {"gdn" {"cpn" {"2010" 20}}})
+data
+(def data {"gdn" {"cpn" {"2010" 20}} {"waw" {"2011" 25}})
+(def data {"gdn" {"cpn" {"2010" 20}} {"waw" {"2011" 25}}})
+(def data {"gdn" {"cpn" {"2010" 20} "waw" {"2011" 25}}})
+data
+(data "gdn")
+(seq (data "gdn"))
+data
+(map first (tree-seq next rest data))
+(tree-seq associative? nil data)
+(tree-seq associative? 1 data)
+(tree-seq associative? seq data)
+(tree-seq associative? get data)
+(tree-seq associative? #(get []) data)
+(tree-seq associative? #(get [] %) data)
+(tree-seq associative? #(get % []) data)
+(tree-seq associative? flatten data)
+(list {:a 2})
+(defn flatten-content [node]
+  (lazy-seq
+    (if (string? node)
+      (list node)
+      (mapcat flatten-content node))))
+(flatten-content {:A 2})
+(flatten-content {"sa" 2})
+(flatten-content {"sa" "2"})
+(flatten-content {:21 "2"})
+(associative? {:a 2})
+(associative? [2 3])
+(map? [21])
+(map? {:a 2})
+(flatten-map data)
+data
+(tree-seq map? #(get % []) data)
+(tree-seq map? lsit data)
+(tree-seq map? list data)
+(tree-seq map? seq data)
+(tree-seq map? #(seq (flatten %)) data)
+(tree-seq map? #(seq (flatten (seq %))) data)
+(tree-seq map? #(seq %) data)
+(defn flatten [x]
+  (filter (complement sequential?)
+          (rest (tree-seq sequential? seq x))))
+(flatten data)
+(defn flatten [x]
+  (filter (complement sequential?)
+(defn flatten [x]
+(flatten data)
+(seq data)
+(seq data nil?)
+'{:a {:x (1 2) :y (3 4)}
+           :b {:x (1 2) :z (5 6)}}
+'{:a {:x (1 2) :y (3 4)}
+           :b {:x (1 2) :z (5 6)}}
+{:a {:x (1 2) :y (3 4)}
+           :b {:x (1 2) :z (5 6)}}
+(flatmap data)
+(concat [2 3] 4)
+(concat [2 3] [4])
+(flatmap data)
+(flatten {:A 2})
+(flatmap data)
+(first (flatmap data))
+(str (first (flatmap data)))
+(str ["a" "b"])
+(join (first (flatmap data)))
+(join "" (first (flatmap data)))
+(str/join "" (first (flatmap data)))
+(str/join (first (flatmap data)))
+(str/join " " (first (flatmap data)))
+data
+(seq data)
+(str/join "" (first (flatmap data)))
+(str/join " " (first (flatmap data)))
+(flatmap {:a {:b {:c 3}}}
+)
+(type (flatmap {:a {:b {:c 3}}}))
+(first (flatmap {:a {:b {:c 3}}}))
+(type (first (flatmap {:a {:b {:c 3}}})))
+(flatmap {:a {:b {:c {:d 3}}}})
+(flatmap {:a {:b {:c {:d {:e 3}}}})
+(flatmap {:a {:b {:c {:d {:e 3}}}}})
+(defn my-flatten [x]
+  (if (coll? x)
+    (mapcat my-flatten x)
+    [x]))
+(my-flatten data)
+(mapcat print data)
+data
+(seq {:a 2})
+(seq {:a 2 :b 3})
+(let [[k v] data] (prn k v)) 
+(let [[k v] (seq data)] (prn k v)) 
+(def [k v] data)
+(let [[k v] data] data)
+(let [[k v] data] k)
+(let [[k v] data] (prn k))
+(let [[k v] (seq data)] (prn k))
+(defn flatten-map [m]
+  (flatten
+    (for [[k v] m]
+      (cons k (flatten-map v)))))
+(flatten-map data)
+(flatten-map (seq data))
+(flatten-map data)
+(seq map)
+(conj [2 2] 2)_
+(conj [2 2] 2)
+(flatten-data v)
+(flatten-data data)
+(conj [] 1 2)
+(flatten-data data)
+(concat [] 2 3)
+(concat [] [2 3)
+(concat [] [2 3])
+(concat [12] [2 3])
+(concat [12] 3)
+(cons [12] 3)
+(conj [12] 3)
+(flatten-data data)
+(flatten-data {:a 4})
+(seq 1 2 3)
+(flatten-data {:a 4})
+(into [] 1 2 3)
+(into [] 1)
+(into [] [1])
+(flatten-data {:a 4})
+(flatten-data {:a {:b 2}})
+(def t {:a {:b 2}})
+(flatten-data t)
+t
+(map? t)
+t
+(flatten-data t)
+(flatten [[12]])
+(flatten [[12 21] 21])
+(flatten-data t)
+(def t {:a {:b 2} :g {:d 3}})
+t
+(flatten-data t)
+(def t {:a {:b 2 :g 4} :g {:d 3}})
+(flatten-data t)
+(conj [1] 2)
+(conj [1] 2 3)
+(conj [1] [2])
+data
+(defn collapse [data & keys-coll]
+  (if (map? data)
+    (for [[k v] data]
+      (collapse v (if (nil? keys-coll)
+                    (conj [] k)
+                    (conj (into [] keys-coll) k))))
+  (hash-map (flatten keys-coll) data)))
+(collapse data)
+data
+(for [[k v] data] (prn k v))
+(for [[k v] data] (prn "X" k v))
+(conj "str" 2
+)
+(range 10)
+(for [x (range 10)] x)
+(for [x (range 10)] [x])
+(seq {:a 2})
+(seq {:a 2 :b 3})
+(concat [1 2] 3)
+(concat [1 2] [3])
+(mapcat (fn [[k vs]] (map (partial cons k) vs)) {:foo [[1 2] [3 2]] :bar [[3 1]]})
+(mapcat (fn [[k vs]] (map (partial cons k) vs)) data)
+(defn mpc [data]
+  )
+(mpc data)
+(flatten-map data ["gdn"])
+(flatten-map data ["gdn" "cpn"])
+(get [1 2 3] 2)
+(get [1 2 3] 54)
+(clj-time/local-date)
+(require '[clj-time.core :as clj-time])
+(clj-time/local-date)
+(clj-time/local-date 2012 03 2)
+(clj-time/local-date "2012 03 2")
+(def date "2012-03-23"
+)
+date
+(re-find #"(\d+)" date)
+(re-find #"(\d+)+" date)
+(re-find date #"(\d+)+")
+(re-find #"(\d+)+" date)
+(re-groups #"(\d+)+" date)
+(re-find  #"(\d+)+" date)
+(re-find  #"\d+*" date)
+(re-find  #"\d+" date)
+(re-find  #"(\d+)*" date)
+(re-seq  #"(\d+)*" date)
+(re-find  #"(\d+)\D+" date)
+(re-find  #"(?:\d+)\D+" date)
+(re-find  #"(:?\d+)\D+" date)
+(re-find  #"(:?\d+)\D+(:?\d+)" date)
+(subvec [3 2 3] 2)
+(subvec [3 2 3] 1)
+(subvec [3 2 3] 1 2)
+(subvec [3 2 3] 1 4)
+(subvec [3 2 3] 1 2)
+(subvec [3 2 3] 1 3)
+(subvec [3 2 3] 2 3)
+(subvec [3 2 3] 1)
+(rest [2 3])
+(rest [2 3 45])
+lines
+(:a lines)
+(apply input->route (:a lines))
+(split
+"dsa DD")
+(apply input->route ("gdn" "cpg" "2012-03-04" "3")
+)
+(apply input->route ("gdn" "cpg" "2012-03-04" "3"))
+(apply ("gdn" "cpg" "2012-03-04" "3") input->route)
+(apply ["gdn" "cpg" "2012-03-04" "3"] input->route)
+(apply input-route ["gdn" "cpg" "2012-03-04" "3"])
+(input->route "2")
+(apply input->route (apply input->route [1 2 3])
+(apply input->route [1 2 3])
+(apply input->route [1 2 3 4])
+args
+(apply input->route args)
+(conj [1] (apply input->route args))
+(def l "C Gdn Cop 2010 20")
+l
+(parse-line l [])
+(def l "C Gdn Cop 2010-12-11 20")
+(parse-line l [])
+(parse-line "C Gdn Cop 2010 20" [])
+(parse-line l [1 2 3])
+(parse-input)
+(if nil 1 2)
+(if [] 1 2)
+(parse-input)
+(conj [] (lin
+)
+(inc 2)
+[(inc 2)]
+[(inc 2) (inc 5)]
+test-db
+(filter #(> (:num-seats %) 14) test-db)
+(filter identity test-db)
+(filter nil test-db)
+test-db
+(frist test-db)
+(first test-db)
+(:date (first test-db))
+(> (:date (first test-db)) (:date (second test-db)))
+test-db
+(filter-routes "Gdn" nil nil nil nil)
+(filter (filter-routes "Gdn" nil nil nil nil) test-db)
+(filter (filter-routes "Gdn" "Cpg" nil nil nil) test-db)
+(def city-dst "Cpg")
+(if city-dst #(= (:city-dst %) city-dst) identity)
+(filter (if city-dst #(= (:city-dst %) city-dst) identity) test-db)
+(filter (if city-src #(= (:city-src %) city-src) identity) test-db)
+(def city-src "Gdn")
+(filter (if city-src #(= (:city-src %) city-src) identity) test-db)
+(filter (if city-dst #(= (:city-dst %) city-dst) identity) test-db)
+(->> test-db
+     (filter (if city-src #(= (:city-src %) city-src) identity) test-db)
+     (filter (if city-dst #(= (:city-dst %) city-dst) identity) test-db)
+)
+(->> test-db
+     (filter (if city-src #(= (:city-src %) city-src) identity))
+     (filter (if city-dst #(= (:city-dst %) city-dst) identity))
+)
+(let [[a b c d] [1 2]] (prn a b c))
+(and 2 nil)
+(and 2 3)
+test-db
+(filter nil test-db)
+(filter some test-db)
+(help some)
+(doc some)
+(filter some (zip test-db (constanly 2))
+)
+date
+(clj-time/before? (clj-time/local-date date) )
+date
+(clj-time/before? (clj-time/local-date "2012-03-04") )
+(clj-time/before? (clj-time/local-date "2012-03-04") (clj-time/local-date "2012-03-03"))
+(str/split "test-test-te" "-")
+(str/split "-" "test-test-te")
+(str/split #"-" "test-test-te")
+(str/split "test-test-te" #"-")
+(str/split "test-test-te" "-")
+(str/split "test-test-te" #"-")
+(str->date "2021-12-21")
+(str->date "2021-12-59")
+(str->date "2021-12-19")
+(>= 2 3)
+(>= 2 2)
+(str->int "21")
+(str->date "2021-12-19")
+(filter (filter-routes "Gdn" nil nil nil nil) test-db)
+(filter-routes test-db "Gdn" nil nil nil nil)
+(filter-routes test-db "Gdn" "Cpg" nil nil nil)
+(filter-routes test-db "Gdn" "Cpg" "2010-03-02" nil nil)
+(filter-routes test-db "Gdn" "Cpg" "2010-03-02" "2010-03-14" nil)
+(filter-routes test-db "Gdn" "Cpg" "2010-03-02" "2010-03-12" nil)
+(filter-routes test-db "Gdn" "Cpg" "2010-03-02" "2010-03-11" nil)
+"2010-02-03"
+(str->date "2010-02-03")
+(clj-time/interval (str->date "2010-02-03") (defn line->routes-db [line routes-db]
+  (let [[command args] (parse-command-re line)]
+    (case command
+      "Q" (prn "Exiting, last state:" routes-db)
+      "C" (try
+            (conj routes-db (apply args->route-map args))
+            (catch Exception e
+              (do (prn "Error: Cannot parse args" line "error: " (.getMessage e))
+                  routes-db)))
+      "S" (prn (str routes-db args))
+      "R" (prn "Redo")
+     ;default
+      (do (prn "Error: Wrong command, please retry.")
+(filter-routes test-db "Gdn" "Cpg" "2010-03-02" "2010-03-12" nil)
+test-db
+(filter-routes test-db "Gdn" "Cpg" "2010-03-02" "2010-03-12" nil)
+test-db
+(clj-time/date-time 2010 11 2)
+test-db
+(line->routes-db "C Gdn Krk 2010-03-04 11")
+(line->routes-db [] "C Gdn Krk 2010-03-04 11")
+test-db
+(filter-routes test-db "Gdn" "Cpg" "2010-03-02" "2010-03-12" nil)
+(filter-routes test-db "Gdn" "Cpg" "2010-03-03" "2010-03-12" nil)
+(filter-routes test-db "Gdn" "Cpg" "2010-03-02" "2010-03-12" nil)
+(filter-routes test-db "Gdn" "Cpg" "2010-03-02" "2010-03-12" 21)
+(filter-routes test-db "Gdn" "Cpg" "2010-03-02" "2010-03-12" "21")
+(filter-routes test-db "Gdn" "Cpg" "2010-03-02" "2010-03-12" "1")
+(filter-routes test-db "Gdn" "Cpg" "2010-03-02" "2010-03-12" "325")
+(filter-routes test-db "Gdn" "Cpg" "2010-03-02" "2010-03-12" "32")
+(filter-routes test-db "Gdn" "Cpg" "2010-03-02" "2010-03-12" "33")
+(filter-routes test-db "Gdn" "Cpg" "2010-03-02" "2010-03-12" "34")
+(str->date "2010-03-22")
+test-db
+(line->routes-db test-db "S")
+(line->routes-db test-db "S Gdn")
+(line->routes-db test-db "S Gdn Krk")
+(line->routes-db test-db "S Gdn Krk 2010-03-04")
+(line->routes-db test-db "S Gdn Krk 2010-03-04 2010-03-05")
+(line->routes-db test-db "S Gdn Krk 2010-03-04 2010-03-08")
+(line->routes-db test-db "S Gdn Krk 2010-03-06 2010-03-08")
+(line->routes-db test-db "S Gdn Krk 2010-03-04 2010-03-08")
+(line->routes-db test-db "S Gdn Krk 2010-03-04 2010-03-08 12")
+(line->routes-db test-db "S Gdn Krk 2010-03-04 2010-03-08 11")
+(line->routes-db test-db "S Gdn Krk 2010-03-04 2010-03-08 -5")
+(line->routes-db test-db "S Gdn Krk")
+(line->routes-db test-db "S Gdn")
+(def _ (line->routes-db test-db "S Gdn"))
+(def x (line->routes-db test-db "S Gdn"))
+x
+(def _ (line->routes-db test-db "S Gdn"))
+(def _z (line->routes-db test-db "S Gdn"))
+(def _z (line->routes-db test-db "S Gdn Cpg"))
+(line->routes-db test-db "S Gdn Cpg")
+(line->routes-db test-db ["S Gdn Cpg"])
+(line->routes-db test-db ["C Gdn Cpg"])
+(line->routes-db test-db ["C Gdn Cpg" "R"])
+assoc
+(defn swap-indexes [v i1 i2]
+  (asso­c v i2 (v i1) i1 (v i2)))
+(defn swap-indexes [v i1 i2]
+  (assoc v i2 (v i1) i1 (v i2)))
+(swap-indexes [1 2 3] 0 2)
+(parse-input)
+lx
+(second ( -> lx last-create-log parse-command-re))
+(def a (second ( -> lx last-create-log parse-command-re)))
+a
+(swap-indexes a 0 1)
+(swap-indexes a 2 1)
+a
+(type a)
+(vec a)
+(type a)
+(swap-indexes a 2 1)
+(swap-indexes a 0 1)
+(swap-indexes a 0 0)
+(parse-input)
+(is 2 3)
+(ns routes.core-test
+  (:require [clojure.test :refer :all]
+            [routes.core :as r]))
+(r/foo
+)
+(ns routes.core-test
+  (:require [clojure.test :refer :all]
+            [routes.core :as r]))
+(ns routes.core-test
+  (:require [clojure.test :refer :all]
+            [routes.core :as r]))
+routes.core-test
+(ns routes.core
+  (:require [clojure.string :as str]
+            [clj-time.core :as clj-time]
+            [clj-time.format :as clj-timef]))
+(ns routes.core-test
+  (:require [clojure.test :refer :all]
+            [routes.core :as r]))
+r
+routes.core
+routes.core/
+;
+routes.core
+routes
+routes.core
+:q
+(def date-formatter
+  "Date formatter that we use for serializing/deserializing"
+  (clj-timef/formatter "yyyy-MM-dd"))
+(defn parse-command-re [line]
+  (let [[command & args] (str/split line #"\s+")] ; split on whitespace
+    [command args]))
+(defn str->int [int-string]
+  (Integer/parseInt int-string))
+(defn str->date [date-string]
+  (->> date-string
+       (clj-timef/parse date-formatter)))
+(ns routes.core
+  (:require [clojure.string  :as str]
+            [clj-time.core   :as clj-time]
+            [clj-time.format :as clj-timef])
+  (:gen-class))
+(def date-formatter
+  "Date formatter that we use for serializing/deserializing"
+  (clj-timef/formatter "yyyy-MM-dd"))
+(defn parse-command-re [line]
+  (let [[command & args] (str/split line #"\s+")] ; split on whitespace
+    [command args]))
+(defn str->int [int-string]
+  (Integer/parseInt int-string))
+(defn str->date [date-string]
+  (->> date-string
+       (clj-timef/parse date-formatter)))
+(defn args->route-map
+  "Takes list of arguments and converts them to route-map"
+  [[city-src city-dst date seats-num]]
+  {:city-src city-src
+   :city-dst city-dst
+   :date (str->date date)
+   :seats (Integer/parseInt seats-num)})
+(in-ns 'routes.core-test)
+(line->routes-db-loop)
