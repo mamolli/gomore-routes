@@ -60,7 +60,7 @@ _Note: on normal conduct, I would discuss this in broader group. I understand in
 # Building/running project
 With leiningen installed run `lein run`.
 If you don't have leiningen but have java installed, try: `java -jar routes-0.1.0-SNAPSHOT-standalone.jar`. 
-// I am aware that leaving binary files in git is not the best practice. Its a move for convienience.
+// I am aware that leaving binary files in git is not the best practice. Its for easy access.
 
 # Tests 
 I tried to deliver some test - mostly on the most outer layer(Run command, check output).
