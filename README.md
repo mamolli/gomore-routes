@@ -5,7 +5,7 @@ I will try and keep this readme document not only about the app itself(which sho
 For dependency management and general project layout I am using lein and git. I do not expect much dependencies, but I would like to have repl running on a port for my editor to connect.
 
 # The task
-So in my understanding, we are building light parser + database.
+So in my understanding, we are building light parser, resource manager(create/view) + database.
 We have some form of DSL that we need to parse, then we need to store this data in some database(or datastructure). The whole thing should operate as interactive shell, meaning we will operate in a loop, reading user input and outputing infromation. There is some state, but I am assuming the state will be internal to the input loop. 
 
 ## Parsing:
