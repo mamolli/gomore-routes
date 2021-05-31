@@ -43,7 +43,7 @@ We will need 2 vectors like that.
 
 Log storing is required for quality implementation of `R` command.
 
-Note: There is inherent performance problem with choosing vector over map. Our searches will have linear complexity rather than O(1). I am hand-waving this issue due to:
+Note: There is inherent performance problem with choosing vector over (hash)map. Our searches will have linear complexity rather than O(1). I am hand-waving this issue due to:
 * this is a small task and has no performance requests
 * improvement from using map is not likely a candidate for final solution, most likely some dedicated db would be
 
