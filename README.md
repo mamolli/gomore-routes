@@ -1,6 +1,6 @@
 # What is this doc?
 
-I will try and keep this readme document not only about the app itself(which should be simple enough) but also present my though process and how I approach solving problems.
+I will try and keep this readme document not only about the app itself(which should be simple enough) but also present my thought process and how I approach solving problems.
 
 For dependency management and general project layout I am using lein and git. I do not expect much dependencies, but I would like to have repl running on a port for my editor to connect.
 
