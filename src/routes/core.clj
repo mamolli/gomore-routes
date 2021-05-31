@@ -1,15 +1,20 @@
 (ns routes.core
-  (:require [clojure.string :as str]
-            [clj-time.core :as clj-time]
-            [clj-time.format :as clj-timef]))
+  (:require [clojure.string  :as str]
+            [clj-time.core   :as clj-time]
+            [clj-time.format :as clj-timef])
+  (:gen-class))
+
 
 (def date-formatter
   "Date formatter that we use for serializing/deserializing"
   (clj-timef/formatter "yyyy-MM-dd"))
 
-(defn parse-command-re [line]
-  (let [[command & args] (str/split line #"\s+")] ; split on whitespace
-    [command args]))
+(defn swap-indexes 
+  "Takes vector-able v, two indexes i j, swaps values between indexes"
+  [v i j]
+  (let [v (vec v)]
+    (assoc v j (v i) i (v j))))
+
 
 (defn str->int [int-string]
   (Integer/parseInt int-string))
@@ -18,29 +23,11 @@
   (->> date-string
        (clj-timef/parse date-formatter)))
 
-(defn args->route-map
-  "Takes list of arguments and converts them to route-map"
-  [[city-src city-dst date seats-num]]
+(defn args->route-map [[city-src city-dst date seats-num]]
   {:city-src city-src
    :city-dst city-dst
-   :date (str->date date)
-   :seats (Integer/parseInt seats-num)})­
-
-(defn swap-indexes 
-  "Takes vector-able v, two indexes i j, swaps values between indexes"
-  [v i j]
-  (let [v (vec v)]
-    (assoc v j (v i) i (v j))))
-
-(defn add-route [routes-db args]
-  (try
-    (conj routes-db (args->route-map args))
-    (catch Exception e
-      (do (prn "Error: Cannot parse args" args "error: " (.getMessage e))
-          routes-db))))
-
-(defn last-create-log [log]
-  (last (filter #(re-matches #"C.*" %) log)))
+   :date     (str->date date)
+   :seats    (Integer/parseInt seats-num)})
 
 (defn route->str [route]
   (str/join " "
@@ -50,6 +37,21 @@
      (clj-timef/formatter "yyyy-MM-dd") 
      (:date route))
     (:seats route)]))
+
+(defn add-route [routes-db args]
+  (try
+    (conj routes-db (args->route-map args))
+    (catch Exception e
+      (do (println "Error: Cannot parse args" args "error: " (.getMessage e))
+          routes-db))))
+
+(defn parse-command-re [line]
+  (let [[command & args] (str/split line #"\s+")] ; split on whitespace
+    [command args]))
+
+(defn last-create-log [log]
+  (last (filter #(re-matches #"C.*" %) log)))
+
 
 (defn filter-routes
   "Filtering routes using positional parameters"
@@ -104,14 +106,14 @@
                  last-args-r   (swap-indexes last-args 0 1)] ; we swap city-src and city-dest
             (add-route routes-db last-args-r))
       ;default
-      (do (prn "Error: Wrong command, please retry.")
+      (do (println "Error: Wrong command, please retry.")
           routes-db))))
 
 ; main IO function, reads input, updates log and processes
 (defn parse-input []
   (loop [routes-db []
          log []]
-    (let [_          (prn "Input command:")
+    (let [_          (println "Input command:")
           line       (read-line)
           log*       (conj log line)
           routes-db* (line->routes-db routes-db log*)]
@@ -121,5 +123,5 @@
 (defn -main [& args]
   (println "======== GoMoreOrRouteCatalogue ========")
   (println "----- for help visit github/README -----")
-  ;(parse-input)
+  (parse-input)
   (println "--------------- bye --------------------"))
