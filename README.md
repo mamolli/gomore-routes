@@ -11,7 +11,7 @@ We have some form of DSL that we need to parse, then we need to store this data 
 ## Parsing:
 I think we can simply use regex.
 As we are not dealing with nested ASTs, but single line commands. For more advanced syntax `instaparse` might be better fit.
-// update: I think there is a very obvious problem, with cities that have multiple words in its name. Such as: New York. This would mean we need quote parsing. Its not state in the task so I am not implementing it, just pointing out important problem.
+// update: I think there is a very obvious problem, with cities that have multiple words in its name. Such as: New York. This would mean we need quote parsing. Its not mentioned in the task so I am not implementing it, just pointing out this important problem.
 
 ## The proposed DSL:
 
