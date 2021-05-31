@@ -24,7 +24,7 @@ So we expect to get 2 items `COMMAND` `[ARGS]` out of input expression. This way
 Initial `COMMAND` list:
 C - for creating (trip) relation between 2 cities
 R - for creating (return trip) reversed relation by inverting last creation
-# R should create a command to be reprocessed, but log is only an added feature
+_R should create a command to be reprocessed, but log is only an added feature_
 S - for searching relations
 Q - for quiting (see [#extending-task])
 
