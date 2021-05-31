@@ -52,7 +52,7 @@ Note: There is inherent performance problem with choosing vector over (hash)map.
 I had a strong urge to extend the task:
 Quality of life proposals: 
 * Treating command `S` without params, as show all. It should be helpful when debuging in REPL.
-* Adding `Q` command, that will quit and print last state of routes. (Its always nice to let the user exit gracefully)
+* Adding `Q` command, that will quit (Its always nice to let the user exit gracefully)
 
 _Note: Normally, I would discuss this in broader group. I understand in typical projects we should talk over adding some additional features, but here I am going to take liberty and just add them._
 
