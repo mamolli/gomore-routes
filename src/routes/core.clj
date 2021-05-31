@@ -94,7 +94,7 @@
   (let [line           (last log) ; todo: verify if string or vec
         [command args] (parse-command-re line)]
     (case command
-      "Q" (prn "Exiting, last state:" routes-db)
+      "Q" nil ;(prn "Exiting, last state:" routes-db)
       "C" (add-route routes-db args)
       "S" (do
             (println (search-routes routes-db args))
